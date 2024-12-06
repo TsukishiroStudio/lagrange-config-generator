@@ -230,7 +230,7 @@ function App() {
             <ListItem>
               <ListItemText primary={'Uin'} secondary={'QQ 号'} />
               <TextField
-                defaultValue={0} // 这里不使用 value 是因为 value 可能会导致输入框无法输入
+                value={configBase.Account.Uin}
                 onChange={e => setConfigBase(draft => {
                   draft.Account.Uin = parseInt(e.target.value) || 0;
                 })}
