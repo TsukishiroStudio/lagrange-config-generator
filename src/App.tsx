@@ -293,7 +293,7 @@ function App() {
               />
             </ListItem>
             <ListItem>
-              <ListItemText primary={'上报为 CQ 码'} />
+              <ListItemText primary={'上报为 CQ 码'} secondary={'[CQ:at,qq=114514] 早上好啊'} />
               <Switch
                 checked={configBase.Message.StringPost}
                 onChange={e => setConfigBase(draft => {
@@ -414,7 +414,7 @@ function App() {
                       />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={'Suffix'} />
+                      <ListItemText primary={'后缀'} secondary={'连接 WS 服务时请求的 API 端点'} />
                       <TextField
                         value={config.Suffix}
                         onChange={e => setImpls(draft => {
@@ -426,7 +426,7 @@ function App() {
                       />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={'重连间隔'} />
+                      <ListItemText primary={'重连间隔'} secondary={'单位为毫秒 (ms)'} />
                       <TextField
                         value={config.ReconnectInterval}
                         onChange={e => setImpls(draft => {
@@ -438,7 +438,7 @@ function App() {
                       />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={'心跳间隔'} />
+                      <ListItemText primary={'心跳间隔'} secondary={'单位为毫秒 (ms)'} />
                       <TextField
                         value={config.HeartBeatInterval}
                         onChange={e => setImpls(draft => {
@@ -489,7 +489,7 @@ function App() {
                       />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={'心跳间隔'} />
+                      <ListItemText primary={'心跳间隔'} secondary={'单位为毫秒 (ms)'} />
                       <TextField
                         value={config.HeartBeatInterval}
                         onChange={e => setImpls(draft => {
@@ -552,7 +552,7 @@ function App() {
                       />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={'Suffix'} />
+                      <ListItemText primary={'后缀'} secondary={'上报时请求的 API 端点'} />
                       <TextField
                         value={config.Suffix}
                         onChange={e => setImpls(draft => {
@@ -564,7 +564,7 @@ function App() {
                       />
                     </ListItem>
                     <ListItem>
-                      <ListItemText primary={'心跳间隔'} />
+                      <ListItemText primary={'心跳间隔'} secondary={'单位为毫秒 (ms)'} />
                       <TextField
                         value={config.HeartBeatInterval}
                         onChange={e => setImpls(draft => {
