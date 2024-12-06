@@ -122,7 +122,7 @@ function App() {
         'Default': 'Information',
       },
     },
-    'SignServerUrl': 'https://sign.lagrangecore.org/api/sign',
+    'SignServerUrl': 'https://sign.lagrangecore.org/api/sign/25765',
     'SignProxyUrl': '',
     'MusicSignServerUrl': '',
     'Account': {
