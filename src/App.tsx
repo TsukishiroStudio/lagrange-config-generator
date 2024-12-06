@@ -678,6 +678,14 @@ function App() {
           anchor="right"
         >
           <Toolbar />
+          <Box display={'flex'} marginBottom={2}>
+            <Button variant={'contained'} onClick={() => {
+              void navigator.clipboard.writeText(JSON.stringify({
+                ...configBase,
+                Implementations: impls.map(({ config }) => config),
+              }, null, 4));
+            }}>复制到剪贴板</Button>
+          </Box>
           <TextField
             multiline={true}
             fullWidth={true}
@@ -685,7 +693,7 @@ function App() {
               ...configBase,
               Implementations: impls.map(({ config }) => config),
             }, null, 4)}
-            InputProps={{
+            inputProps={{
               sx: {
                 fontFamily: [
                   '"JetBrains Mono Variable"',
