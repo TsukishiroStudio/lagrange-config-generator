@@ -9,8 +9,7 @@ import {
   List,
   ListItem,
   ListItemText,
-  MenuItem,
-  Select,
+  NativeSelect,
   Switch,
   TextField,
   ThemeProvider,
@@ -172,9 +171,7 @@ function App() {
             <ListItemText primary={'日志设定'} secondary={'有关日志等级的设定'} />
             <ListItem>
               <ListItemText primary={'默认日志等级'} secondary={'如需上报 Issue 请设置为 Trace'} />
-              <Select
-                labelId="Logging:LogLevel:Default"
-                id="Logging:LogLevel:Default"
+              <NativeSelect
                 value={configBase.Logging.LogLevel.Default}
                 onChange={e => setConfigBase(draft => {
                   draft.Logging.LogLevel.Default = e.target.value;
@@ -185,9 +182,9 @@ function App() {
                 {[
                   'Trace', 'Debug', 'Information', 'Warning', 'Error', 'Critical', 'None',
                 ].map(item =>
-                  <MenuItem key={`Logging.LogLevel.Default=${item}`} value={item}>{item}</MenuItem>)
+                  <option key={`Logging.LogLevel.Default=${item}`} value={item}>{item}</option>)
                 }
-              </Select>
+              </NativeSelect>
             </ListItem>
           </List>
           <Divider />
@@ -249,9 +246,7 @@ function App() {
             </ListItem>
             <ListItem>
               <ListItemText primary={'协议'} />
-              <Select
-                labelId="Account:Protocol"
-                id="Account:Protocol"
+              <NativeSelect
                 value={configBase.Account.Protocol}
                 onChange={e => setConfigBase(draft => {
                   draft.Account.Protocol = e.target.value;
@@ -262,9 +257,9 @@ function App() {
                 {[
                   'Linux', 'MacOs', 'Windows',
                 ].map(item =>
-                  <MenuItem key={`Account.Protocol=${item}`} value={item}>{item}</MenuItem>)
+                  <option key={`Account.Protocol=${item}`} value={item}>{item}</option>)
                 }
-              </Select>
+              </NativeSelect>
             </ListItem>
             <ListItem>
               <ListItemText primary={'自动重连'} />
