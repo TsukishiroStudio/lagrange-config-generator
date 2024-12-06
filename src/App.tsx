@@ -318,7 +318,7 @@ function App() {
           <Divider />
           <List sx={{ paddingX: 3, paddingY: 2 }}>
             <ListItem disablePadding={true}>
-              <ListItemText primary={'网络服务设定'} secondary={'配置 Lagrange.OneBot 暴露在网络中的服务'} />
+              <ListItemText primary={'服务设定'} secondary={'有关 Lagrange.OneBot 网络服务的设定'} />
             </ListItem>
             <ListItem disablePadding={true}>
               <Button onClick={() => {
@@ -333,14 +333,14 @@ function App() {
                     },
                   });
                 });
-              }}>增加 HTTP 实现</Button>
+              }}>新建 HTTP 服务</Button>
               <Button onClick={() => {
                 setImpls(draft => {
                   draft.push({
                     key: nextImplKey.current++,
                     config: {
                       'Type': 'HttpPost',
-                      'Host': '127.0.0.1', // 可以填写前缀协议, 例如 `https://`
+                      'Host': '127.0.0.1',
                       'Port': 8082,
                       'Suffix': '/',
                       'HeartBeatInterval': 5000,
@@ -350,7 +350,7 @@ function App() {
                     },
                   });
                 });
-              }}>增加 HTTP Post 实现</Button>
+              }}>新建 HTTP Post 服务</Button>
               <Button onClick={() => {
                 setImpls(draft => {
                   draft.push({
@@ -365,7 +365,7 @@ function App() {
                     },
                   });
                 });
-              }}>增加 WebSocket 实现</Button>
+              }}>新建 WebSocket 服务</Button>
               <Button onClick={() => {
                 setImpls(draft => {
                   draft.push({
@@ -381,14 +381,17 @@ function App() {
                     },
                   });
                 });
-              }}>增加反向 WebSocket 实现</Button>
+              }}>新建反向 WebSocket 服务</Button>
             </ListItem>
             {
               impls.map(({ key, config }, index) => {
                 if (config.Type === 'ReverseWebSocket') {
                   return <List key={key} sx={{ padding: 2, marginY: 1 }}>
                     <ListItem disablePadding={true}>
-                      <ListItemText primary={'反向 WebSocket 实现'} secondary={`${config.Host}${config.Suffix}`} />
+                      <ListItemText
+                        primary={'反向 WebSocket 服务'}
+                        secondary={`主动连接位于 ws://${config.Host}${config.Suffix} 的 WebSocket 服务`}
+                      />
                       <Button onClick={() => setImpls(draft => {
                         draft.splice(index, 1);
                       })}>移除</Button>
@@ -463,7 +466,8 @@ function App() {
                 } else if (config.Type === 'ForwardWebSocket') {
                   return <List key={key} sx={{ padding: 2, marginY: 1 }}>
                     <ListItem disablePadding={true}>
-                      <ListItemText primary={'正向 WebSocket 实现'} secondary={`${config.Host}:${config.Port}`} />
+                      <ListItemText primary={'正向 WebSocket 服务'}
+                                    secondary={`在 ${config.Port} 端口监听 WebSocket 连接`} />
                       <Button onClick={() => setImpls(draft => {
                         draft.splice(index, 1);
                       })}>移除</Button>
@@ -525,8 +529,10 @@ function App() {
                 } else if (config.Type === 'HttpPost') {
                   return <List key={key} sx={{ padding: 2, marginY: 1 }}>
                     <ListItem disablePadding={true}>
-                      <ListItemText primary={'HTTP Post 实现'}
-                                    secondary={`${config.Host}:${config.Port}${config.Suffix}`} />
+                      <ListItemText primary={'HTTP Post 服务'}
+                                    secondary={`向地址 ${
+                                      config.Host.startsWith('https://') ? config.Host : `http://${config.Host}`
+                                    }:${config.Port}${config.Suffix} 通过 Post 上报事件`} />
                       <Button onClick={() => setImpls(draft => {
                         draft.splice(index, 1);
                       })}>移除</Button>
@@ -612,7 +618,8 @@ function App() {
                 } else { // Http
                   return <List key={key} sx={{ padding: 2, marginY: 1 }}>
                     <ListItem disablePadding={true}>
-                      <ListItemText primary={'HTTP 实现'} secondary={`${config.Host}:${config.Port}`} />
+                      <ListItemText primary={'HTTP 服务'}
+                                    secondary={`在 ${config.Port} 端口监听 HTTP 连接`} />
                       <Button onClick={() => setImpls(draft => {
                         draft.splice(index, 1);
                       })}>移除</Button>
