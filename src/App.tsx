@@ -161,11 +161,14 @@ function App() {
   }, null, 4);
 
   return <ThemeProvider theme={theme}><CssBaseline />
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+    <AppBar position={'fixed'} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
-        <Typography variant={'h6'} style={{ userSelect: 'none' }}>
+        <Typography variant={'h6'} style={{ userSelect: 'none' }} flexGrow={1}>
           <b>Lagrange Config Generator</b>
         </Typography>
+        <Button sx={{ color: 'white' }} href={'https://lagrangedev.github.io/Lagrange.Doc/Lagrange.OneBot/Config/'}>
+          配置文档
+        </Button>
       </Toolbar>
     </AppBar>
     <Box display={'flex'} flexDirection={'column'} height={'100vh'}>
