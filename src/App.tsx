@@ -155,6 +155,11 @@ function App() {
     },
   ]);
 
+  const configJson = JSON.stringify({
+    ...configBase,
+    Implementations: impls.map(({ config }) => config),
+  }, null, 4);
+
   return <ThemeProvider theme={theme}><CssBaseline />
     <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
@@ -682,19 +687,13 @@ function App() {
           <Toolbar />
           <Box display={'flex'} marginBottom={2}>
             <Button variant={'contained'} onClick={() => {
-              void navigator.clipboard.writeText(JSON.stringify({
-                ...configBase,
-                Implementations: impls.map(({ config }) => config),
-              }, null, 4));
+              void navigator.clipboard.writeText(configJson);
             }}>复制到剪贴板</Button>
           </Box>
           <TextField
             multiline={true}
             fullWidth={true}
-            value={JSON.stringify({
-              ...configBase,
-              Implementations: impls.map(({ config }) => config),
-            }, null, 4)}
+            value={configJson}
             inputProps={{
               sx: {
                 fontFamily: [
