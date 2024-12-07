@@ -259,11 +259,9 @@ function App() {
                 sx={{ minWidth: 0.3 }}
                 variant={'outlined'}
               >
-                {[
-                  'Linux', 'MacOs', 'Windows',
-                ].map(item =>
-                  <option key={`Account.Protocol=${item}`} value={item}>{item}</option>)
-                }
+                <option value={'Linux'}>Linux</option>
+                <option value={'Windows'}>Windows</option>
+                <option value={'MacOs'}>macOS</option>
               </NativeSelect>
             </ListItem>
             <ListItem>
