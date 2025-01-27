@@ -235,7 +235,7 @@ function App() {
           <List sx={{ paddingX: 3, paddingY: 2 }}>
             <ListItemText primary={'账号设定'} secondary={'有关账号信息的设定'} />
             <ListItem>
-              <ListItemText primary={'Uin'} secondary={'QQ 号'} />
+              <ListItemText primary={'Uin'} secondary={'用于识别 db 和 qrcode 文件, 无其他用途'} />
               <TextField
                 value={configBase.Account.Uin}
                 onChange={e => setConfigBase(draft => {
@@ -245,7 +245,7 @@ function App() {
               />
             </ListItem>
             <ListItem>
-              <ListItemText primary={'密码'} secondary={'留空以使用扫码登录'} />
+              <ListItemText primary={'密码'} secondary={'不再支持'} />
               <TextField
                 value={configBase.Account.Password}
                 onChange={e => setConfigBase(draft => {
