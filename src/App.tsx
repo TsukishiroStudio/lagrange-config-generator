@@ -27,6 +27,7 @@ import { useImmer } from 'use-immer';
 import { useRef } from 'react';
 
 interface LagrangeConfigBase {
+  "$schema": string,
   Logging: {
     LogLevel: {
       Default: string;
@@ -116,6 +117,7 @@ const theme = createTheme({
 function App() {
   const nextImplKey = useRef(0);
   const [configBase, setConfigBase] = useImmer<LagrangeConfigBase>({
+    '$schema': "https://raw.githubusercontent.com/LagrangeDev/Lagrange.Core/master/Lagrange.OneBot/Resources/appsettings_schema.json",
     'Logging': {
       'LogLevel': {
         'Default': 'Information',
