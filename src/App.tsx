@@ -123,7 +123,7 @@ function App() {
         'Default': 'Information',
       },
     },
-    'SignServerUrl': 'https://sign.lagrangecore.org/api/sign/30366',
+    'SignServerUrl': 'https://sign.lolita.edu.rs',
     'SignProxyUrl': '',
     'MusicSignServerUrl': '',
     'Account': {
