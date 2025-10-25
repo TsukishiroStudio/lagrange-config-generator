@@ -166,7 +166,7 @@ function App() {
     <AppBar position={'fixed'} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
         <Typography variant={'h6'} style={{ userSelect: 'none' }} flexGrow={1}>
-          <b>Lagrange Config Generator</b>
+          <b>Lagrange Config Generator - LolitaEdu Sign</b>
         </Typography>
         <Button sx={{ color: 'white' }} href={'https://lagrangedev.github.io/Lagrange.Doc/Lagrange.OneBot/Config/'}>
           配置文档
