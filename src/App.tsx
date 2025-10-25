@@ -123,7 +123,7 @@ function App() {
         'Default': 'Information',
       },
     },
-    'SignServerUrl': 'https://sign.lolita.edu.rs',
+    'SignServerUrl': 'https://sign.lolita.edu.rs/40990/',
     'SignProxyUrl': '',
     'MusicSignServerUrl': '',
     'Account': {
